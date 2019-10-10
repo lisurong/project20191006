@@ -1,98 +1,78 @@
 <template>
   <div class="hello">
-    <p>element ui</p>
-    <el-button type="primary">主要按钮</el-button>
-    <p>iview ui</p>
-    <Button type="primary">Primary11</Button>
     <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+    <result></result>
+   <screen :screen="item" v-for="item in screenList" :key="item.id"></screen>
   </div>
 </template>
 
 <script>
+import result from './screenResult.vue'
+import screen from './screen.vue'
 export default {
-  name: 'HelloWorld',
+  components:{
+    screen,
+    result
+  },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      screenList:[
+        {
+          id:1,
+          name:"跟进时间",
+          list:[
+            {
+              id:101,
+              name:"0-7天"
+            },
+            {
+              id:102,
+              name:"8-15天"
+              
+            }
+          ]
+        },{
+          id:2,
+          name:"跟进人",
+          list:[
+            {
+              id:201,
+              name:"张三"
+            },
+            {
+              id:202,
+              name:"李四"
+              
+            },
+            {
+              id:203,
+              name:"赵武"
+              
+            }
+          ]
+        },
+       {
+          id:3,
+          name:"跟进方式",
+          list:[
+            {
+              id:301,
+              name:"微信"
+            },
+            {
+              id:302,
+              name:"QQ"
+              
+            },
+            {
+              id:303,
+              name:"拜访"
+              
+            }
+          ]
+        }
+      ]
     }
   }
 }
